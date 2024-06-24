@@ -10,6 +10,8 @@ def main(page: ft.Page):
             on_primary=ft.colors.BLACK,
             primary_container=ft.colors.AMBER_200,
             on_primary_container=ft.colors.AMBER_900,
+            background=ft.colors.GREY_200,
+            on_background=ft.colors.ON_PRIMARY,
         ),
     )
     page.dark_theme = ft.Theme(
@@ -18,8 +20,10 @@ def main(page: ft.Page):
             on_primary=ft.colors.WHITE,
             primary_container=ft.colors.PURPLE_900,
             on_primary_container=ft.colors.PURPLE_200,
-
+            background=ft.colors.GREY_800,
+            on_background=ft.colors.ON_PRIMARY,
         ),
+
     )
     def close_dia(e):
         page.close(dlg)
