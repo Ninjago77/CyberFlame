@@ -5,26 +5,30 @@ def main(page: ft.Page):
     global Principle_Index,Display_Principle,PrincipleControls,mobile
     page.theme_mode = ft.ThemeMode.SYSTEM
     page.theme = ft.Theme(
-        scrollbar_theme=ft.ScrollbarTheme(
-        #     track_color={
-        #         ft.ControlState.HOVERED: ft.colors.AMBER,
-        #         ft.ControlState.DEFAULT: ft.colors.TRANSPARENT,
-        #     },
-        #     track_visibility=True,
-        #     track_border_color=ft.colors.BLUE,
-        #     thumb_visibility=True,
-        #     thumb_color={
-        #         ft.ControlState.HOVERED: ft.colors.RED,
-        #         ft.ControlState.DEFAULT: ft.colors.GREY_300,
-        #     },
-        #     thickness=30,
-        #     radius=15,
-        #     main_axis_margin=5,
-        #     cross_axis_margin=10,
-        #     # interactive=False,
-        )
+        color_scheme=ft.ColorScheme(
+            primary=ft.colors.ORANGE,
+            on_primary=ft.colors.BLACK,
+            primary_container=ft.colors.AMBER_200,
+            on_primary_container=ft.colors.AMBER_900,
+            secondary=ft.colors.BLUE,
+            on_secondary=ft.colors.BLUE,
+            secondary_container=ft.colors.BLUE,
+            on_secondary_container=ft.colors.BLUE,
+            tertiary=ft.colors.BLUE,
+            on_tertiary=ft.colors.BLUE,
+            tertiary_container=ft.colors.BLUE,
+            on_tertiary_container=ft.colors.BLUE,
+        ),
     )
-    page.theme.scrollbar_theme.cross_axis_margin = -50
+    page.dark_theme = ft.Theme(
+        color_scheme=ft.ColorScheme(
+            primary=ft.colors.DEEP_PURPLE,
+            on_primary=ft.colors.WHITE,
+            primary_container=ft.colors.PURPLE_900,
+            on_primary_container=ft.colors.PURPLE_200,
+
+        ),
+    )
     def close_dia(e):
         page.close(dlg)
     dlg = ft.AlertDialog(
@@ -70,11 +74,10 @@ def main(page: ft.Page):
     Display_Principle = ft.Container(scale=view_scale,margin=ft.margin.only(left=1,right=1)) # TODO: fix bottom padding
 
     PrincipleControls = [
-        
-        ft.Column(controls= [# About
+        ft.Card(content=ft.Column(controls= [# About
             ft.Text("About The App",theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("This Project was made by Shanvanth Arunmozhi to teach CyberSecurity Principles.",width=300,theme_style=ft.TextThemeStyle.BODY_LARGE),
-        ]),
+        ])),
 
     ]
     
