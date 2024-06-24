@@ -2,7 +2,7 @@ import random
 import flet as ft
 
 def main(page: ft.Page):
-    global Principle_Index,Display_Principle,PrincipleControls,mobile,PARENT_OF_DRAGTARGETS
+    global Principle_Index,Display_Principle,PrincipleControls,mobile
     page.theme_mode = ft.ThemeMode.SYSTEM
     page.theme = ft.Theme(
         scrollbar_theme=ft.ScrollbarTheme(
@@ -59,7 +59,7 @@ def main(page: ft.Page):
     CUSTOM_THEMESTYLE_LARGETEXT = ft.TextThemeStyle.DISPLAY_SMALL
     CUSTOM_THEMESTYLE_MEDUIMTEXT = ft.TextThemeStyle.TITLE_MEDIUM
 
-    page.title = "PolyFactor!"
+    page.title = "CyberFlame!"
     Principle_Index = 0
     view_scale = 1.0
     if page.width <= 350:
@@ -133,23 +133,12 @@ def main(page: ft.Page):
     else:
         page.appbar.center_title = True
         page.navigation_bar = Nav_Control_Final
-        playground = PrincipleControls.pop(-2)
         page.add(
             ft.Row([
-                    ft.Container(
-                        content=Display_Principle,
-                        width=page.width*(31/32)*(1/2),
-                        alignment=ft.alignment.top_center,
-                    ),
-                    ft.Container(
-                        content=playground,
-                        width=page.width*(31/32)*(1/2),
-                        alignment=ft.alignment.top_center,
-                    ),
+                    Display_Principle,
                 ],
-                # alignment=ft.MainAxisAlignment.CENTER,
+                alignment=ft.MainAxisAlignment.CENTER,
                 expand=True,
             )
         )
-
 ft.app(target=main,web_renderer=ft.WebRenderer.HTML,view=ft.AppView.WEB_BROWSER)
