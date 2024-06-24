@@ -25,35 +25,35 @@ def main(page: ft.Page):
         )
     )
     page.theme.scrollbar_theme.cross_axis_margin = -50
+    def close_dia(e):
+        page.close(dlg)
+    dlg = ft.AlertDialog(
+        title=ft.Text("Hello there! You just resized me!\nReload Me Please! >v<\n Or I might look wierd..."),
+        actions=[ft.FloatingActionButton(
+            text="I don't care",
+            icon=ft.icons.CLOSE_ROUNDED,
+            on_click=close_dia,
+        )],
+        modal=True,
+    )
 
     def resize(e):
-        def close_dia(e):
-            page.dialog.open = False
-            page.update()
-        page.dialog = ft.AlertDialog(
-            title=ft.Text("Hello there! You just resized me!\nReload Me Please! >v<\n Or I might look wierd..."),
-            actions=[ft.FloatingActionButton(
-                text="I don't care",
-                icon=ft.icons.CLOSE_ROUNDED,
-                on_click=close_dia,
-            )],
-            modal=True,
-        )
-        page.dialog.open = True
+        print("hi")
+        page.open(dlg)
         page.update()
         # page.launch_url(
         #     page.url,
         #     web_popup_window=False,
         #     web_window_name=ft.UrlTarget.SELF,
         # )
-    page.on_resize = resize
+    page.window.on_resized = resize
     mobile = page.width < page.height
     if mobile:
         Nav_Control = ft.NavigationDrawer
         Nav_Control_Dest = ft.NavigationDrawerDestination
     else:
         Nav_Control = ft.NavigationBar
-        Nav_Control_Dest = ft.NavigationDestination
+        Nav_Control_Dest = ft.NavigationBarDestination
     
     CUSTOM_THEMESTYLE_SMALLTEXT = ft.TextThemeStyle.BODY_SMALL if mobile else ft.TextThemeStyle.BODY_MEDIUM 
     CUSTOM_THEMESTYLE_LARGETEXT = ft.TextThemeStyle.DISPLAY_SMALL
@@ -109,9 +109,7 @@ def main(page: ft.Page):
         ),
     ]
     if mobile: Nav_Control_Final.controls = Nav_Control_List
-    else:
-        Nav_Control_List.pop(-2)
-        Nav_Control_Final.destinations = Nav_Control_List
+    else: Nav_Control_Final.destinations = Nav_Control_List
     if mobile:
         def menu_open(e):
             page.drawer.open = True
