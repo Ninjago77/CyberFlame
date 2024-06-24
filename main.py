@@ -10,14 +10,6 @@ def main(page: ft.Page):
             on_primary=ft.colors.BLACK,
             primary_container=ft.colors.AMBER_200,
             on_primary_container=ft.colors.AMBER_900,
-            secondary=ft.colors.BLUE,
-            on_secondary=ft.colors.BLUE,
-            secondary_container=ft.colors.BLUE,
-            on_secondary_container=ft.colors.BLUE,
-            tertiary=ft.colors.BLUE,
-            on_tertiary=ft.colors.BLUE,
-            tertiary_container=ft.colors.BLUE,
-            on_tertiary_container=ft.colors.BLUE,
         ),
     )
     page.dark_theme = ft.Theme(
