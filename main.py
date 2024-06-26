@@ -100,72 +100,58 @@ def main(page: ft.Page):
             box.color = ft.colors.RED
         e.control.parent.update()
 
+    def Company_List_Gen(label,desc,list_of_names_images):
+        return ft.Column(scroll=ft.ScrollMode.AUTO,controls= [
+            ft.Text(label,width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
+            ft.Text(desc,width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
+            ft.Row(
+                wrap=True,
+                vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                alignment=ft.MainAxisAlignment.CENTER,
+                width=300,
+                controls=[
+                    ft.Container(
+                        content=ft.Column(controls=[
+                            ft.Image(src=i[1],fit=ft.ImageFit.SCALE_DOWN),
+                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT,text_align=ft.TextAlign.CENTER),
+                        ]),
+                        width=100,
+                        height=150,
+                        alignment=ft.alignment.center,
+                        bgcolor=ft.colors.PRIMARY_CONTAINER,
+                        border=ft.border.all(1, ft.colors.ON_PRIMARY_CONTAINER),
+                        border_radius=ft.border_radius.all(5),
+                    )
+                    for i in list_of_names_images
+                ],
+            ),
+        ])
     
     PracticeControls = [
-        ft.Column(scroll=ft.ScrollMode.AUTO,controls= [# Password Managers
-            ft.Text("Password Managers",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
-            ft.Text("Passwords must be kept safe, this doesn't mean you can just write it on a sticky note. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
-            ft.Row(
-                wrap=True,
-                vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                alignment=ft.MainAxisAlignment.CENTER,
-                width=300,
-                controls=[
-                    ft.Container(
-                        content=ft.Column(controls=[
-                            ft.Image(src=i[1],fit=ft.ImageFit.SCALE_DOWN),
-                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT,text_align=ft.TextAlign.CENTER),
-                        ]),
-                        width=100,
-                        height=150,
-                        alignment=ft.alignment.center,
-                        bgcolor=ft.colors.PRIMARY_CONTAINER,
-                        border=ft.border.all(1, ft.colors.ON_PRIMARY_CONTAINER),
-                        border_radius=ft.border_radius.all(5),
-                    )
-                    for i in [
-                        ("1Password","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/1Password_icon.png/900px-1Password_icon.png"),
-                        ("bitwarden","https://static-00.iconduck.com/assets.00/bitwarden-v2-icon-512x512-cstnj11p.png"),
-                        ("Dashlane","https://cdn.icon-icons.com/icons2/2407/PNG/512/dashlane_icon_146197.png"),
-                        ("Keeper","https://govcloud.keepersecurity.us/vault/images/keeper_icons/icon_rounded_256.png"),
-                        ("NordPass","https://www.techspot.com/images2/downloads/topdownload/2021/02/2021-02-18-ts3_thumbs-371-p_256.webp"),
-                        ("LastPass","https://static-00.iconduck.com/assets.00/lastpass-icon-256x256-5io6p8tz.png"),
-                    ]
-                ],
-            ),
-        ]),
-        ft.Column(scroll=ft.ScrollMode.AUTO,controls= [# Cloud Storage Procviders
-            ft.Text("Cloud Storage Providers",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
-            ft.Text("Your data isn't safe on your device, not just from hackers but also from time, your drives can occasionally crash, & you might lose your data. To prevent this, use a a cloud storage provider, here are some:-",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
-            ft.Row(
-                wrap=True,
-                vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                alignment=ft.MainAxisAlignment.CENTER,
-                width=300,
-                controls=[
-                    ft.Container(
-                        content=ft.Column(controls=[
-                            ft.Image(src=i[1],fit=ft.ImageFit.SCALE_DOWN),
-                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT,text_align=ft.TextAlign.CENTER),
-                        ]),
-                        width=100,
-                        height=150,
-                        alignment=ft.alignment.center,
-                        bgcolor=ft.colors.PRIMARY_CONTAINER,
-                        border=ft.border.all(1, ft.colors.ON_PRIMARY_CONTAINER),
-                        border_radius=ft.border_radius.all(5),
-                    )
-                    for i in [
-                        ("Google Drive","https://static-00.iconduck.com/assets.00/google-drive-icon-2048x2048-j5sa1hcp.png"),
-                        ("OneDrive","https://cdn.icon-icons.com/icons2/3053/PNG/512/microsoft_onedrive_alt_macos_bigsur_icon_189976.png"),
-                        ("Mega","https://cdn.freebiesupply.com/logos/large/2x/mega-icon-logo-png-transparent.png"),
-                        ("Dropbox","https://cdn.freebiesupply.com/logos/large/2x/dropbox-1-logo-png-transparent.png"),
-                        ("Sync.com","https://www.sync.com/blog/wp-content/uploads/2019/08/check_logo.png"),
-                        ("IDrive","https://cdn-icons-png.flaticon.com/512/873/873125.png"),
-                    ]
-                ],
-            ),
-        ]),
+        Company_List_Gen(# Cloud Storage Providers
+            "Cloud Storage Providers",
+            "Your data isn't safe on your device, not just from hackers but also from time, your drives can occasionally crash, & you might lose your data. To prevent this, use a a cloud storage provider, here are some:-",
+            [
+                ("Google Drive","https://static-00.iconduck.com/assets.00/google-drive-icon-2048x2048-j5sa1hcp.png"),
+                ("OneDrive","https://cdn.icon-icons.com/icons2/3053/PNG/512/microsoft_onedrive_alt_macos_bigsur_icon_189976.png"),
+                ("Mega","https://cdn.freebiesupply.com/logos/large/2x/mega-icon-logo-png-transparent.png"),
+                ("Dropbox","https://cdn.freebiesupply.com/logos/large/2x/dropbox-1-logo-png-transparent.png"),
+                ("Sync.com","https://www.sync.com/blog/wp-content/uploads/2019/08/check_logo.png"),
+                ("IDrive","https://cdn-icons-png.flaticon.com/512/873/873125.png"),
+            ]
+        ),
+        Company_List_Gen(# Password Managers
+            "Password Managers",
+            "Passwords must be kept safe, this doesn't mean you can just write it on a sticky note. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",
+            [
+                ("1Password","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/1Password_icon.png/900px-1Password_icon.png"),
+                ("bitwarden","https://static-00.iconduck.com/assets.00/bitwarden-v2-icon-512x512-cstnj11p.png"),
+                ("Dashlane","https://cdn.icon-icons.com/icons2/2407/PNG/512/dashlane_icon_146197.png"),
+                ("Keeper","https://govcloud.keepersecurity.us/vault/images/keeper_icons/icon_rounded_256.png"),
+                ("NordPass","https://www.techspot.com/images2/downloads/topdownload/2021/02/2021-02-18-ts3_thumbs-371-p_256.webp"),
+                ("LastPass","https://static-00.iconduck.com/assets.00/lastpass-icon-256x256-5io6p8tz.png"),
+            ]
+        ),
         ft.Column(controls= [# Password Strength Tester
             ft.Text("Password Strength Tester",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("A password needs to be secure enough to prevent someone guessing or brute forcing it.",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
