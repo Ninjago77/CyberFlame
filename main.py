@@ -214,20 +214,25 @@ def main(page: ft.Page):
         on_change= nav_rail_switch,
     )
     Nav_Control_List = [
-        # Nav_Control_Dest(
-        #     icon_content=ft.Text("a³-b³",theme_style=ft.TextThemeStyle.BODY_SMALL),
-        #     selected_icon_content=ft.Text("a³-b³",theme_style=ft.TextThemeStyle.BODY_SMALL,weight=ft.FontWeight.BOLD),
-        #     label="Difference of Cubes",
-        # ),
         Nav_Control_Dest(
-            icon=ft.icons.LIST,
-            selected_icon=ft.icons.VIEW_LIST,
-            label="Password Managers",
+            icon=ft.icons.CORONAVIRUS_OUTLINED,
+            selected_icon=ft.icons.CORONAVIRUS_ROUNDED,
+            label="Antiviruses",
         ),
         Nav_Control_Dest(
-            icon=ft.icons.LIST,
-            selected_icon=ft.icons.VIEW_LIST,
+            icon=ft.icons.WIFI_ROUNDED,
+            selected_icon=ft.icons.WIFI_PASSWORD_ROUNDED,
+            label="VPNs",
+        ),
+        Nav_Control_Dest(
+            icon=ft.icons.STORAGE_OUTLINED,
+            selected_icon=ft.icons.STORAGE_ROUNDED,
             label="Cloud Storage",
+        ),
+        Nav_Control_Dest(
+            icon=ft.icons.FOLDER_COPY_OUTLINED,
+            selected_icon=ft.icons.FOLDER_COPY_ROUNDED,
+            label="Password Managers",
         ),
         Nav_Control_Dest(
             icon=ft.icons.LOCK_OPEN,
