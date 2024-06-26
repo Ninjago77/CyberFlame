@@ -134,6 +134,38 @@ def main(page: ft.Page):
                 ],
             ),
         ]),
+        ft.Column(scroll=ft.ScrollMode.AUTO,controls= [# Cloud Storage Procviders
+            ft.Text("Cloud Storage Providers",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
+            ft.Text("Your data isn't safe on your device, not just from hackers but also from time, your drives can occasionally crash, & you might lose your data. To prevent this, use a a cloud storage provider, here are some:-",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
+            ft.Row(
+                wrap=True,
+                vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                alignment=ft.MainAxisAlignment.CENTER,
+                width=300,
+                controls=[
+                    ft.Container(
+                        content=ft.Column(controls=[
+                            ft.Image(src=i[1],fit=ft.ImageFit.SCALE_DOWN),
+                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT,text_align=ft.TextAlign.CENTER),
+                        ]),
+                        width=100,
+                        height=150,
+                        alignment=ft.alignment.center,
+                        bgcolor=ft.colors.PRIMARY_CONTAINER,
+                        border=ft.border.all(1, ft.colors.ON_PRIMARY_CONTAINER),
+                        border_radius=ft.border_radius.all(5),
+                    )
+                    for i in [
+                        ("Google Drive","https://static-00.iconduck.com/assets.00/google-drive-icon-2048x2048-j5sa1hcp.png"),
+                        ("OneDrive","https://cdn.icon-icons.com/icons2/3053/PNG/512/microsoft_onedrive_alt_macos_bigsur_icon_189976.png"),
+                        ("Mega","https://cdn.freebiesupply.com/logos/large/2x/mega-icon-logo-png-transparent.png"),
+                        ("Dropbox","https://cdn.freebiesupply.com/logos/large/2x/dropbox-1-logo-png-transparent.png"),
+                        ("Sync.com","https://www.sync.com/blog/wp-content/uploads/2019/08/check_logo.png"),
+                        ("IDrive","https://cdn-icons-png.flaticon.com/512/873/873125.png"),
+                    ]
+                ],
+            ),
+        ]),
         ft.Column(controls= [# Password Strength Tester
             ft.Text("Password Strength Tester",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("A password needs to be secure enough to prevent someone guessing or brute forcing it.",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
@@ -176,6 +208,11 @@ def main(page: ft.Page):
             icon=ft.icons.LIST,
             selected_icon=ft.icons.VIEW_LIST,
             label="Password Managers",
+        ),
+        Nav_Control_Dest(
+            icon=ft.icons.LIST,
+            selected_icon=ft.icons.VIEW_LIST,
+            label="Cloud Storage",
         ),
         Nav_Control_Dest(
             icon=ft.icons.LOCK_OPEN,
