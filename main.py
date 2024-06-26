@@ -105,7 +105,7 @@ def main(page: ft.Page):
         ft.Column(controls= [# Password Strength Tester
             ft.Text("Password Strength Tester",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("A password needs to be secure enough to prevent someone guessing or brute forcing it.",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
-            ft.TextField(label="Try out your password!",multiline=True,password=True,can_reveal_password=True,on_change=strength_test,on_submit=strength_test),
+            ft.TextField(label="Try out a password!",multiline=True,password=True,can_reveal_password=True,on_change=strength_test,on_submit=strength_test),
             ft.FloatingActionButton(text="Submit",on_click=strength_test,width=300),
             ft.Text("",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT)
         ]),
