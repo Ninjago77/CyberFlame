@@ -102,6 +102,32 @@ def main(page: ft.Page):
 
     
     PrincipleControls = [
+        ft.Column(controls= [# Password Managers
+            ft.Text("Password Managers",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
+            ft.Text("Passwords must be kept safe, this doesn't mean you can just write it on a sticky note. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
+            ft.Column(
+                wrap=True,
+                scroll=ft.ScrollMode.AUTO,
+                controls=[
+                    ft.Container(
+                        content=ft.Column(controls=[
+                            ft.Image(src=i[1],fit=ft.ImageFit.SCALE_DOWN),
+                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
+                        ]),
+                        width=100,
+                        height=150,
+                        alignment=ft.alignment.center,
+                        bgcolor=ft.colors.PRIMARY_CONTAINER,
+                        border=ft.border.all(1, ft.colors.ON_PRIMARY_CONTAINER),
+                        border_radius=ft.border_radius.all(5),
+                    )
+                    for i in [
+                        ("1Password","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/1Password_icon.png/900px-1Password_icon.png"),
+                        ("bitwarden","https://static-00.iconduck.com/assets.00/bitwarden-v2-icon-512x512-cstnj11p.png"),
+                    ]
+                ],
+            ),
+        ]),
         ft.Column(controls= [# Password Strength Tester
             ft.Text("Password Strength Tester",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("A password needs to be secure enough to prevent someone guessing or brute forcing it.",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
@@ -111,7 +137,7 @@ def main(page: ft.Page):
         ]),
         ft.Column(controls= [# About
             ft.Text("About The App",theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
-            ft.Text("This Project was made by Shanvanth Arunmozhi to teach CyberSecurity Principles.",width=300,theme_style=ft.TextThemeStyle.BODY_LARGE),
+            ft.Text("This Project was made by Shanvanth Arunmozhi to teach CyberSecurity Principles.",width=300,theme_style=CUSTOM_THEMESTYLE_MEDUIMTEXT),
         ]),
 
     ]
