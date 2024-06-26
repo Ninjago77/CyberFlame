@@ -137,12 +137,11 @@ def main(page: ft.Page):
             "Antiviruses",
             "Your device is unsafe, whether or not you click on dangerous links. Hackers exploit many vulnerabilities in your device's security to get past firewalls, like malware, trojans, spyware, ransomware, etc... Use an Anitvirus to protect yourself, here are a few:-",
             [
-
             ]
         ),
-        Company_List_Gen(# VPNs
+        Company_List_Gen(# Virtual Private Networks
             "VPNs",
-            "VPN Desc",
+            "When you use public wifis, you could be watched, tracked and maybe even hacked. This can also happen in some personal networks too. The best way to protect yourself from this is, to use a Virtual Private Network (VPN). Here are some VPN Services:-",
             [
                 ("Surfshark","https://static-00.iconduck.com/assets.00/surfshark-icon-2048x2048-cw5t9bgc.png"),
                 ("NordVPN","https://static-00.iconduck.com/assets.00/nordvpn-icon-2048x2048-v0o071qh.png"),
@@ -166,7 +165,7 @@ def main(page: ft.Page):
         ),
         Company_List_Gen(# Password Managers
             "Password Managers",
-            "Passwords must be kept safe, this doesn't mean you can just write it on a sticky note. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",
+            "Passwords must be kept safe, this doesn't mean you can just write it on a sticky note, It needs to be accessible to you & secure from everyone else. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",
             [
                 ("1Password","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/1Password_icon.png/900px-1Password_icon.png"),
                 ("bitwarden","https://static-00.iconduck.com/assets.00/bitwarden-v2-icon-512x512-cstnj11p.png"),
