@@ -113,14 +113,19 @@ def main(page: ft.Page):
                     ft.Container(
                         content=ft.Column(controls=[
                             ft.Image(src=i[1],fit=ft.ImageFit.SCALE_DOWN),
-                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT,text_align=ft.TextAlign.CENTER),
+                            ft.Container(
+                                content=ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT,text_align=ft.TextAlign.CENTER),
+                                alignment=ft.alignment.center
+                            ),
                         ]),
                         width=100,
-                        height=150,
+                        height=135,
                         alignment=ft.alignment.center,
                         bgcolor=ft.colors.PRIMARY_CONTAINER,
                         border=ft.border.all(1, ft.colors.ON_PRIMARY_CONTAINER),
                         border_radius=ft.border_radius.all(5),
+                        margin=ft.margin.all(10),
+                        padding=ft.padding.all(5),
                     )
                     for i in list_of_names_images
                 ],
@@ -128,6 +133,25 @@ def main(page: ft.Page):
         ])
     
     PracticeControls = [
+        Company_List_Gen(# Antiviruses
+            "Antiviruses",
+            "Your device is unsafe, whether or not you click on dangerous links. Hackers exploit many vulnerabilities in your device's security to get past firewalls, like malware, trojans, spyware, ransomware, etc... Use an Anitvirus to protect yourself, here are a few:-",
+            [
+
+            ]
+        ),
+        Company_List_Gen(# VPNs
+            "VPNs",
+            "VPN Desc",
+            [
+                ("Surfshark","https://static-00.iconduck.com/assets.00/surfshark-icon-2048x2048-cw5t9bgc.png"),
+                ("NordVPN","https://static-00.iconduck.com/assets.00/nordvpn-icon-2048x2048-v0o071qh.png"),
+                ("ExpressVPN","https://static-00.iconduck.com/assets.00/expressvpn-icon-2048x2048-bkmmskcf.png"),
+                ("CyberGhost","https://icons.iconarchive.com/icons/blackvariant/button-ui-requests-9/512/CyberGhost-icon.png"),
+                ("ProtonVPN","https://seeklogo.com/images/P/proton-vpn-logo-A50452564D-seeklogo.com.png"),
+                ("IPVanish","https://asset.brandfetch.io/idfsGZMXzA/id3hQss0oz.jpeg"),
+            ]
+        ),
         Company_List_Gen(# Cloud Storage Providers
             "Cloud Storage Providers",
             "Your data isn't safe on your device, not just from hackers but also from time, your drives can occasionally crash, & you might lose your data. To prevent this, use a a cloud storage provider, here are some:-",
