@@ -102,17 +102,19 @@ def main(page: ft.Page):
 
     
     PrincipleControls = [
-        ft.Column(controls= [# Password Managers
+        ft.Column(scroll=ft.ScrollMode.AUTO,controls= [# Password Managers
             ft.Text("Password Managers",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("Passwords must be kept safe, this doesn't mean you can just write it on a sticky note. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
-            ft.Column(
+            ft.Row(
                 wrap=True,
-                scroll=ft.ScrollMode.AUTO,
+                vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                alignment=ft.MainAxisAlignment.CENTER,
+                width=300,
                 controls=[
                     ft.Container(
                         content=ft.Column(controls=[
                             ft.Image(src=i[1],fit=ft.ImageFit.SCALE_DOWN),
-                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
+                            ft.Text(i[0],theme_style=CUSTOM_THEMESTYLE_SMALLTEXT,text_align=ft.TextAlign.CENTER),
                         ]),
                         width=100,
                         height=150,
@@ -124,6 +126,10 @@ def main(page: ft.Page):
                     for i in [
                         ("1Password","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/1Password_icon.png/900px-1Password_icon.png"),
                         ("bitwarden","https://static-00.iconduck.com/assets.00/bitwarden-v2-icon-512x512-cstnj11p.png"),
+                        ("Dashlane","https://cdn.icon-icons.com/icons2/2407/PNG/512/dashlane_icon_146197.png"),
+                        ("Keeper","https://govcloud.keepersecurity.us/vault/images/keeper_icons/icon_rounded_256.png"),
+                        ("NordPass","https://www.techspot.com/images2/downloads/topdownload/2021/02/2021-02-18-ts3_thumbs-371-p_256.webp"),
+                        ("LastPass","https://static-00.iconduck.com/assets.00/lastpass-icon-256x256-5io6p8tz.png"),
                     ]
                 ],
             ),
@@ -166,6 +172,11 @@ def main(page: ft.Page):
         #     selected_icon_content=ft.Text("a³-b³",theme_style=ft.TextThemeStyle.BODY_SMALL,weight=ft.FontWeight.BOLD),
         #     label="Difference of Cubes",
         # ),
+        Nav_Control_Dest(
+            icon=ft.icons.LIST,
+            selected_icon=ft.icons.VIEW_LIST,
+            label="Password Managers",
+        ),
         Nav_Control_Dest(
             icon=ft.icons.LOCK_OPEN,
             selected_icon=ft.icons.LOCK,
