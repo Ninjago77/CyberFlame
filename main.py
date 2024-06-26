@@ -137,6 +137,12 @@ def main(page: ft.Page):
             "Antiviruses",
             "Your device is unsafe, whether or not you click on dangerous links. Hackers exploit many vulnerabilities in your device's security to get past firewalls, like malware, trojans, spyware, ransomware, etc... Use an Anitvirus to protect yourself, here are a few:-",
             [
+                ("McAfee","https://opensource.mcafee.com/images/large-logo-mcafee.png"),
+                ("Bitdefender","https://static-00.iconduck.com/assets.00/bitdefender-icon-2048x2048-7jlpf8mf.png"),
+                ("Norton","https://asset.brandfetch.io/idfJNLkPAT/idcSFMIBrr.jpeg"),
+                ("Avast","https://upload.wikimedia.org/wikipedia/commons/4/4e/Avast_Software_white_logo.png"),
+                ("TotalAV","https://static.macupdate.com/products/63420/l/totalav-logo.png"),
+                ("AVG","https://cdn.icon-icons.com/icons2/58/PNG/256/AVGAntivirus_11712.png"),
             ]
         ),
         Company_List_Gen(# Virtual Private Networks
