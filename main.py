@@ -191,6 +191,7 @@ def main(page: ft.Page):
         ft.Column(controls= [# About
             ft.Text("About The App",theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("This Project was made by Shanvanth Arunmozhi to teach CyberSecurity Practices.",width=300,theme_style=CUSTOM_THEMESTYLE_MEDUIMTEXT),
+            ft.Text("The favicon & loading animation images were made by Us and Up.",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
         ]),
 
     ]
