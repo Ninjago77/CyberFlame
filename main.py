@@ -1,4 +1,5 @@
 import random
+import string
 import flet as ft
 
 def main(page: ft.Page):
@@ -38,15 +39,18 @@ def main(page: ft.Page):
     )
 
     def resize(e):
-        print("hi")
-        page.open(dlg)
-        page.update()
-        # page.launch_url(
-        #     page.url,
-        #     web_popup_window=False,
-        #     web_window_name=ft.UrlTarget.SELF,
-        # )
-    page.window.on_resized = resize
+        # page.open(dlg)
+        # page.update()
+        try:
+            page.launch_url(
+                f"https{page.url[2:]}",
+                web_popup_window=False,
+                web_window_name=ft.UrlTarget.SELF,
+            )
+        except AttributeError as e:
+            page.open(dlg)
+            page.update()
+    page.on_resized = resize
     mobile = page.width < page.height
     if mobile:
         Nav_Control = ft.NavigationDrawer
@@ -64,16 +68,51 @@ def main(page: ft.Page):
     view_scale = 1.0
     if page.width <= 350:
         view_scale = page.width/400
-    WRAP_WIDTH = page.width-20
-    WRAP_WIDTH_v2 = page.width*(15/16)*(1/2)
-    WRAP_HEIGHT = page.height*(3/4)
-    Display_Principle = ft.Container(scale=view_scale,margin=ft.margin.only(left=1,right=1)) # TODO: fix bottom padding
+    Display_Principle = ft.Container(scale=view_scale,margin=ft.margin.all(1)) # TODO: fix bottom padding
+    def in_str(s1,s2):
+        for i in s1:
+            if i in s2:
+                return True
+        return False
 
+
+    def strength_test(e):
+        password = e.control.parent.controls[-3].value
+        box = e.control.parent.controls[-1]
+        box.value = ""
+        if not in_str(string.ascii_lowercase, password):
+            box.value += "✘ Your password should include lowercase characters\n"
+        if not in_str(string.ascii_uppercase, password):
+            box.value += "✘ Your password should include uppeascii_uppercase characters\n"
+        if not in_str(string.digits, password):
+            box.value += "✘ Your password should include numbers\n"
+        if not in_str(string.punctuation, password):
+            box.value += "✘ Your password should include symbols characters\n"
+        if in_str(string.whitespace, password):
+            box.value += "✘ Your password should not include whitespace\n"
+        if len(password) <= 15:
+            box.value += "✘ Your password should be atleast 16 characters long\n"
+        
+        if box.value == "":
+            box.color = ft.colors.GREEN
+            box.value = "✔ You password is safe"
+        else:
+            box.color = ft.colors.RED
+        e.control.parent.update()
+
+    
     PrincipleControls = [
-        ft.Card(content=ft.Column(controls= [# About
+        ft.Column(controls= [# Password Strength Tester
+            ft.Text("Password Strength Tester",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
+            ft.Text("A password needs to be secure enough to prevent someone guessing or brute forcing it.",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
+            ft.TextField(label="Try out your password!",multiline=True,password=True,can_reveal_password=True,on_change=strength_test,on_submit=strength_test),
+            ft.FloatingActionButton(text="Submit",on_click=strength_test,width=300),
+            ft.Text("",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT)
+        ]),
+        ft.Column(controls= [# About
             ft.Text("About The App",theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("This Project was made by Shanvanth Arunmozhi to teach CyberSecurity Principles.",width=300,theme_style=ft.TextThemeStyle.BODY_LARGE),
-        ])),
+        ]),
 
     ]
     
@@ -102,6 +141,11 @@ def main(page: ft.Page):
         #     label="Difference of Cubes",
         # ),
         Nav_Control_Dest(
+            icon=ft.icons.LOCK_OPEN,
+            selected_icon=ft.icons.LOCK,
+            label="Password Strength",
+        ),
+        Nav_Control_Dest(
             icon=ft.icons.INFO_OUTLINE_ROUNDED,
             selected_icon=ft.icons.INFO_ROUNDED,
             label="About",
@@ -119,23 +163,21 @@ def main(page: ft.Page):
             on_click=menu_open,
         )
         page.drawer = Nav_Control_Final
-        page.add(
-            ft.Row([
-                    Display_Principle,
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-                expand=True,
-            )
-        )
     else:
         page.appbar.center_title = True
         page.navigation_bar = Nav_Control_Final
-        page.add(
-            ft.Row([
-                    Display_Principle,
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-                expand=True,
-            )
+    page.add(
+        ft.Row([
+                ft.Card(
+                    content=ft.Container(
+                        content=Display_Principle,
+                        padding=ft.padding.all(20),
+                    ),
+                    margin=ft.margin.all(10),
+                ),
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            expand=True,
         )
+    )
 ft.app(target=main,web_renderer=ft.WebRenderer.HTML,view=ft.AppView.WEB_BROWSER)
