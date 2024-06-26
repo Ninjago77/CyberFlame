@@ -3,7 +3,7 @@ import string
 import flet as ft
 
 def main(page: ft.Page):
-    global Principle_Index,Display_Principle,PrincipleControls,mobile
+    global Practice_Index,Display_Practice,PracticeControls,mobile
     page.theme_mode = ft.ThemeMode.SYSTEM
     page.theme = ft.Theme(
         color_scheme=ft.ColorScheme(
@@ -64,11 +64,11 @@ def main(page: ft.Page):
     CUSTOM_THEMESTYLE_MEDUIMTEXT = ft.TextThemeStyle.TITLE_MEDIUM
 
     page.title = "CyberFlame!"
-    Principle_Index = 0
+    Practice_Index = 0
     view_scale = 1.0
     if page.width <= 350:
         view_scale = page.width/400
-    Display_Principle = ft.Container(scale=view_scale,margin=ft.margin.all(1)) # TODO: fix bottom padding
+    Display_Practice = ft.Container(scale=view_scale,margin=ft.margin.all(1)) # TODO: fix bottom padding
     def in_str(s1,s2):
         for i in s1:
             if i in s2:
@@ -101,7 +101,7 @@ def main(page: ft.Page):
         e.control.parent.update()
 
     
-    PrincipleControls = [
+    PracticeControls = [
         ft.Column(scroll=ft.ScrollMode.AUTO,controls= [# Password Managers
             ft.Text("Password Managers",width=300,theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
             ft.Text("Passwords must be kept safe, this doesn't mean you can just write it on a sticky note. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",width=300,theme_style=CUSTOM_THEMESTYLE_SMALLTEXT),
@@ -175,24 +175,24 @@ def main(page: ft.Page):
         ]),
         ft.Column(controls= [# About
             ft.Text("About The App",theme_style=ft.TextThemeStyle.DISPLAY_SMALL),
-            ft.Text("This Project was made by Shanvanth Arunmozhi to teach CyberSecurity Principles.",width=300,theme_style=CUSTOM_THEMESTYLE_MEDUIMTEXT),
+            ft.Text("This Project was made by Shanvanth Arunmozhi to teach CyberSecurity Practices.",width=300,theme_style=CUSTOM_THEMESTYLE_MEDUIMTEXT),
         ]),
 
     ]
     
     def nav_rail_switch(e):
-        global Principle_Index,Display_Principle,mobile
-        Principle_Index = e.control.selected_index
+        global Practice_Index,Display_Practice,mobile
+        Practice_Index = e.control.selected_index
         if mobile:
             page.drawer.open = False
-        Display_Principle_update()
-    def Display_Principle_update():
-        global Principle_Index,Display_Principle
-        Display_Principle.content = PrincipleControls[Principle_Index]
+        Display_Practice_update()
+    def Display_Practice_update():
+        global Practice_Index,Display_Practice
+        Display_Practice.content = PracticeControls[Practice_Index]
         page.update()
-    Display_Principle_update()
+    Display_Practice_update()
     page.appbar = ft.AppBar(
-        title=ft.Text("CyberFlame" if mobile else "CyberFlame | Learn CyberSecurity Principles!",color=ft.colors.ON_PRIMARY),
+        title=ft.Text("CyberFlame" if mobile else "CyberFlame | Learn CyberSecurity Practices!",color=ft.colors.ON_PRIMARY),
         bgcolor=ft.colors.PRIMARY,
     )
     Nav_Control_Final = Nav_Control(
@@ -244,7 +244,7 @@ def main(page: ft.Page):
         ft.Row([
                 ft.Card(
                     content=ft.Container(
-                        content=Display_Principle,
+                        content=Display_Practice,
                         padding=ft.padding.all(20),
                     ),
                     margin=ft.margin.all(10),
