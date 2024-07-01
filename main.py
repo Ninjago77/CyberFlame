@@ -83,7 +83,7 @@ def main(page: ft.Page):
         if not in_str(string.ascii_lowercase, password):
             box.value += "✘ Your password should include lowercase characters\n"
         if not in_str(string.ascii_uppercase, password):
-            box.value += "✘ Your password should include uppeascii_uppercase characters\n"
+            box.value += "✘ Your password should include uppercase characters\n"
         if not in_str(string.digits, password):
             box.value += "✘ Your password should include numbers\n"
         if not in_str(string.punctuation, password):
