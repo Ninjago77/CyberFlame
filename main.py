@@ -3,6 +3,12 @@ import string
 import flet as ft
 
 def main(page: ft.Page):
+    # page.remove(*page.controls)
+    # page.appbar = None
+    # page.drawer = None
+    # page.navigation_bar = None
+    # page.clean()
+
     global Practice_Index,Display_Practice,PracticeControls,mobile
     page.theme_mode = ft.ThemeMode.SYSTEM
     page.theme = ft.Theme(
@@ -39,6 +45,7 @@ def main(page: ft.Page):
     )
 
     def resize(e):
+        # main(page)
         try:
             page.launch_url(
                 f"https{page.url[2:]}",
@@ -275,4 +282,5 @@ def main(page: ft.Page):
             expand=True,
         )
     )
+    # page.update()
 ft.app(target=main,web_renderer=ft.WebRenderer.HTML,view=ft.AppView.WEB_BROWSER)
