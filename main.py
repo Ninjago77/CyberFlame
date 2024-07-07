@@ -39,8 +39,6 @@ def main(page: ft.Page):
     )
 
     def resize(e):
-        # page.open(dlg)
-        # page.update()
         try:
             page.launch_url(
                 f"https{page.url[2:]}",
@@ -60,7 +58,7 @@ def main(page: ft.Page):
         Nav_Control_Dest = ft.NavigationBarDestination
     
     CUSTOM_THEMESTYLE_SMALLTEXT = ft.TextThemeStyle.BODY_SMALL if mobile else ft.TextThemeStyle.BODY_MEDIUM 
-    CUSTOM_THEMESTYLE_LARGETEXT = ft.TextThemeStyle.DISPLAY_SMALL
+    # CUSTOM_THEMESTYLE_LARGETEXT = ft.TextThemeStyle.DISPLAY_SMALL
     CUSTOM_THEMESTYLE_MEDUIMTEXT = ft.TextThemeStyle.TITLE_MEDIUM
 
     page.title = "CyberFlame!"
@@ -135,7 +133,7 @@ def main(page: ft.Page):
     PracticeControls = [
         Company_List_Gen(# Antiviruses
             "Antiviruses",
-            "Your device is unsafe, whether or not you click on dangerous links. Hackers exploit many vulnerabilities in your device's security to get past firewalls, like malware, trojans, spyware, ransomware, etc... Use an Anitvirus to protect yourself, here are a few:-",
+            "Your device is vulnerable to various threats, even if you don't click on dangerous links. Hackers can exploit security flaws using malware, trojans, spyware, ransomware, and more. To protect your device, use an antivirus program. Here are a few options:-",
             [
                 ("McAfee","https://opensource.mcafee.com/images/large-logo-mcafee.png"),
                 ("Bitdefender","https://static-00.iconduck.com/assets.00/bitdefender-icon-2048x2048-7jlpf8mf.png"),
@@ -147,8 +145,10 @@ def main(page: ft.Page):
         ),
         Company_List_Gen(# Virtual Private Networks
             "VPNs",
-            "When you use public wifis, you could be watched, tracked and maybe even hacked. This can also happen in some personal networks too. The best way to protect yourself from this is, to use a Virtual Private Network (VPN). Here are some VPN Services:-",
+            "When you use public Wi-Fi, your online activities can be watched, tracked, and potentially hacked. This risk exists even on some personal networks. The best way to protect yourself is to use a Virtual Private Network (VPN). Here are some VPN services to consider:-",
             [
+                ("MullvadVPN","https://mullvad.net/press/MullvadVPN_logo_Round_RGB_Color_negative.png"),
+                ("atlasVPN","https://media.imgcdn.org/repo/2023/03/atlas-vpn/atlas-vpn-logo.png"),
                 ("Surfshark","https://static-00.iconduck.com/assets.00/surfshark-icon-2048x2048-cw5t9bgc.png"),
                 ("NordVPN","https://static-00.iconduck.com/assets.00/nordvpn-icon-2048x2048-v0o071qh.png"),
                 ("ExpressVPN","https://static-00.iconduck.com/assets.00/expressvpn-icon-2048x2048-bkmmskcf.png"),
@@ -159,7 +159,7 @@ def main(page: ft.Page):
         ),
         Company_List_Gen(# Cloud Storage Providers
             "Cloud Storage Providers",
-            "Your data isn't safe on your device, not just from hackers but also from time, your drives can occasionally crash, & you might lose your data. To prevent this, use a a cloud storage provider, here are some:-",
+            "When it comes to storing your data securely and accessing it from anywhere, cloud storage is an essential tool. Not only does it offer convenience, but it also ensures that your data is backed up and protected. Here are some popular Cloud Storage Providers:-",
             [
                 ("Google Drive","https://static-00.iconduck.com/assets.00/google-drive-icon-2048x2048-j5sa1hcp.png"),
                 ("OneDrive","https://cdn.icon-icons.com/icons2/3053/PNG/512/microsoft_onedrive_alt_macos_bigsur_icon_189976.png"),
@@ -170,8 +170,8 @@ def main(page: ft.Page):
             ]
         ),
         Company_List_Gen(# Password Managers
-            "Password Managers",
-            "Passwords must be kept safe, this doesn't mean you can just write it on a sticky note, It needs to be accessible to you & secure from everyone else. You need a password manager to safeguard your passwords & remember them for you. Here are some:-",
+        "Password Managers",
+        "Passwords need to be kept secure and easily accessible only to you. Writing them on sticky notes is not safe. A password manager can safeguard and remember your passwords for you. Here are some recommended password managers:-",
             [
                 ("1Password","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/1Password_icon.png/900px-1Password_icon.png"),
                 ("bitwarden","https://static-00.iconduck.com/assets.00/bitwarden-v2-icon-512x512-cstnj11p.png"),
